@@ -203,7 +203,11 @@ FROM tblCustomer c
 	
 -- 2. 서브 쿼리
 -- 메인 쿼리가 자식 테이블이 되어야 하고, 상관 서브 쿼리는 부모 테이블이 되어야 한다.
-	
+
+SELECT
+	item AS 물품명,
+	(SELECT name FROM tblCustomer WHERE seq = tblSales.cseq) AS 고객명
+FROM tblSales;
 	
 	
 	

@@ -6,7 +6,7 @@
 
 --sum()
 --1. 유럽과 아프리카에 속한 나라의 인구 수 합? tblCountry > 14,198
-SELECT * FROM tblCountry
+SELECT * FROM tblCountry WHERE CONTINENT = 'AS' OR CONTINENT = 'EU';
 
 
 --2. 매니저(108)이 관리하고 있는 직원들의 급여 총합? hr.employees > 39,600
