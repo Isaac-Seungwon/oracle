@@ -211,7 +211,7 @@ SELECT 							--4. 각 그룹별로 집계 함수를 실행한다.
 	round(avg(basicpay))
 FROM TBLINSA					--1. 60명의 데이터를 가져온다.
 	WHERE basicpay >= 1500000	--2. 60명을 대상으로 조건을 검사한다.
-	GROUP BY buseo;				--3. 2번을 통과한 사람들(27명)을 대상으로 그룹을 짓는다.
+		GROUP BY buseo;			--3. 2번을 통과한 사람들(27명)을 대상으로 그룹을 짓는다.
 
 --HAVING절
 SELECT 										--4. 각 그룹별로 집계 함수를 실행한다.
@@ -220,7 +220,127 @@ SELECT 										--4. 각 그룹별로 집계 함수를 실행한다.
 FROM TBLINSA								--1. 60명의 데이터를 가져온다.
 	GROUP BY buseo							--2. 60명을 대상으로 그룹을 짓는다.
 		HAVING avg(basicpay) >= 1500000;	--3. 그룹별로 조건을 검사한다.
-		
 --ORA-00979: not a GROUP BY expressio
 -- 그룹의 데이터가 아니라 개인 데이터를 HAVING절에서 사용할 경우 에러가 발생한다.	
 -- GROUP BY로 그룹으로 지어진 순간부터 집계 함수로 호출하는 것 밖에 할 수 없게 된다.
+		
+
+-- 인원수가 10명이 넘는 부서
+
+SELECT
+	buseo AS 부서,
+	count(*) AS 인원수
+FROM tblInsa
+	GROUP BY buseo
+		HAVING count(*) >= 10;
+		
+-- 간부가 3명이 넘는 부서
+SELECT
+	buseo AS 부서,
+	count(*) AS 인원수
+FROM tblInsa
+	WHERE jikwi IN ('과장', '부장')
+		GROUP BY buseo
+			HAVING count(*) >= 3;
+		
+		
+-- job_id 그룹 > 통계
+SELECT
+	job_id AS 직종,
+	count(*) AS 인원수,
+	round(avg(salary)) AS 평균급여
+FROM EMPLOYEES
+	GROUP BY job_id;
+		
+		
+-- 시도별 인원수 (서울, 인천, 부산..)
+SELECT * FROM TBLADDRESSBOOK;		
+
+SELECT substr(address, 1, instr(address, ' ') - 1) FROM TBLADDRESSBOOK;
+
+-- 주소의 첫 단어만을 가져오고 싶다고 할 때, instr 함수를 이용해 주소의 첫 번째 ' '를 찾는다.
+-- substr(컬럼, 시작위치, 문자개수) 함수를 이용해 첫 단어를 가져온다.
+
+SELECT
+	substr(address, 1, instr(address, ' ') - 1) AS 시도,
+	count(*) AS 인원수
+FROM TBLADDRESSBOOK 
+	GROUP BY substr(address, 1, instr(address, ' ') - 1)
+		ORDER BY 인원수 DESC;
+
+	
+-- 부서별 / 직급별 인원수
+
+SELECT
+	buseo AS 부서명,
+	count(*) AS 총인원,
+	count(decode(jikwi, '부장', 1)) AS 부장,
+	count(decode(jikwi, '과장', 1)) AS 과장,
+	count(decode(jikwi, '대리', 1)) AS 대리,
+	count(decode(jikwi, '사원', 1)) AS 사원
+FROM TBLINSA
+	GROUP BY buseo;
+
+SELECT
+	buseo,
+	jikwi,
+	count(*)
+FROM TBLINSA 
+	GROUP BY buseo, jikwi
+		ORDER BY buseo, jikwi;
+
+		
+
+/*
+ 	rollup()
+ 	- rollup 함수는 group by의 집계 결과를 더 자세하게 반환해준다.
+ 	- 그룹별 중간 통계를 낸다.
+
+*/
+		
+
+SELECT
+	buseo,
+	count(*) AS 인원수,
+	sum(basicpay),
+	round(avg(basicpay)),
+	max(basicpay),
+	min(basicpay)
+FROM TBLINSA
+	GROUP BY ROLLUP(buseo, jikwi);
+		
+-- rollup 함수를 실행하자 가장 하단부에 레코드 하나가 더 생겼다.
+-- rollup 함수가 어디에 쓰였냐에 따라서 다른 결과를 낸다. sum은 sum값의 합을 구하고, round는 round값의 평균을 구하고, max는 max값 중 가장 큰 값을 구하고, min은 min값 중 가장 작은 값을 구한다.
+
+-- 차원이 들어갈수록 중간에 계속 rollup함수가 결산을 한다.
+-- 개발부, 기획부, 영업부.. 부서마다 가장 하단에 중간 통계를 냈다.
+
+
+/*
+	
+*/
+
+SELECT
+	buseo,
+	count(*) AS 인원수,
+	sum(basicpay),
+	round(avg(basicpay)),
+	max(basicpay),
+	min(basicpay)
+FROM TBLINSA
+	GROUP BY CUBE(buseo);
+
+SELECT
+	buseo,
+	count(*) AS 인원수,
+	sum(basicpay),
+	round(avg(basicpay)),
+	max(basicpay),
+	min(basicpay)
+FROM TBLINSA
+	GROUP BY CUBE(buseo, jikwi);
+
+
+
+
+
