@@ -5,18 +5,29 @@
 
 --2. tblZoo. 종류(family)별 평균 다리의 갯수를 가져오시오.
 
-    
+SELECT
+	family AS 종류,
+	round(avg(leg)) AS "평균 다리의 개수"
+FROM TBLZOO
+	GROUP BY family;
     
 
-    
 --3. tblZoo. 체온이 변온인 종류 중 아가미 호흡과 폐 호흡을 하는 종들의 갯수를 가져오시오.
 
+SELECT
+	breath AS 호흡,
+	count(*) AS 개수
+FROM TBLZOO
+	WHERE THERMO = 'variable'
+		GROUP BY BREATH;
         
         
 
 --4. tblZoo. 사이즈와 종류별로 그룹을 나누고 각 그룹의 갯수를 가져오시오.
 
-        
+SELECT
+	*
+FROM TBLZOO;
         
         
 

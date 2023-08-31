@@ -341,6 +341,7 @@ FROM TBLINSA
 	GROUP BY CUBE(buseo, jikwi);
 
 
-
+-- rollup > 다중 그룹 컬럼 > 수직 관계(전체 인원 총계, 부서별 총계)
+-- cube > 다중 그룹 컬럼 > 수평 관계(전체 인원 총계, 부서별 총계, 직위별 총계)
 
 
