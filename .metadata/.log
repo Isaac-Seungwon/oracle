@@ -1,0 +1,84 @@
+!SESSION 2023-09-01 09:08:11.322 -----------------------------------------------
+eclipse.buildId=M20090211-1700
+java.version=1.8.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ko_KR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.794
+!MESSAGE NLS unused message: OpenResourceDialog_openButton_text in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.795
+!MESSAGE NLS unused message: OpenResourceDialog_openWithMenu_label in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.795
+!MESSAGE NLS unused message: OpenResourceDialog_openWithButton_toolTip in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.795
+!MESSAGE NLS unused message: CleanDialog_cleanSelectedTaskName in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.795
+!MESSAGE NLS unused message: RecentWorkspacesPreferencePage_PromptAtStartup_label in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:08:28.795
+!MESSAGE NLS unused message: RecentWorkspacesPreferencePage_RemoveButton_label in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.491
+!MESSAGE NLS unused message: url_couldNotResolve_projectDoesNotExist in: org.eclipse.core.internal.utils.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.596
+!MESSAGE NLS unused message: Shortcuts_shortcutTab in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.597
+!MESSAGE NLS unused message: Shortcuts_selectShortcutsLabel in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.597
+!MESSAGE NLS unused message: Shortcuts_availableMenus in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.597
+!MESSAGE NLS unused message: Shortcuts_availableCategories in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.598
+!MESSAGE NLS unused message: Shortcuts_allShortcuts in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.599
+!MESSAGE NLS unused message: Util_listNull in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.599
+!MESSAGE NLS unused message: OpenBrowserHandler_NoInfoDialogTitle in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:33.599
+!MESSAGE NLS unused message: AboutFeaturesDialog_SimpleTitle in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:52.297
+!MESSAGE NLS unused message: BinaryDumpHandler_1 in: com.tomato.exerd.handler.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:52.297
+!MESSAGE NLS unused message: ConvertToXMLHandler_1 in: com.tomato.exerd.handler.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:52.297
+!MESSAGE NLS unused message: SelectHandler_11 in: com.tomato.exerd.handler.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:52.298
+!MESSAGE NLS unused message: ToggleColumnVisibilityHandler_4 in: com.tomato.exerd.handler.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:09:52.298
+!MESSAGE NLS unused message: ToggleColumnVisibilityHandler_5 in: com.tomato.exerd.handler.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.342
+!MESSAGE NLS missing message: FK_컬럼의_이름은_null일_수_없습니다 in: com.tomato.exerd.reverse2.job.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.744
+!MESSAGE NLS unused message: ReverseEngineeringProcessor_JDBC_Driver_1_4_이상을_권장합니다__Oracle_9i_호환_모드로_계속_진행됩니다 in: com.tomato.exerd.product.oracle10g.service.reverse2.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.744
+!MESSAGE NLS unused message: ReverseEngineeringProcessor_JDBC_Driver에서_DBMS의_버전_확인_중_오류가_발생하였습니다 in: com.tomato.exerd.product.oracle10g.service.reverse2.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.745
+!MESSAGE NLS unused message: ReverseEngineeringProcessor_JDBC_Driver에서_DBMS의_버전_확인_중_오류가_발생하였습니다_JDBC_1_4_이상을_권장합니다_Oracle_9i_호환_모드로_계속_진행됩니다 in: com.tomato.exerd.product.oracle10g.service.reverse2.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.745
+!MESSAGE NLS unused message: ReverseEngineeringProcessor_원본_DBMS in: com.tomato.exerd.product.oracle10g.service.reverse2.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2023-09-01 09:39:19.745
+!MESSAGE NLS unused message: ReverseEngineeringProcessor_원본_DBMS_Version in: com.tomato.exerd.product.oracle10g.service.reverse2.internal.messages
