@@ -44,6 +44,7 @@ FROM tblInsa
 	
 
 -- 5. tblInsa. 간부(부장, 과장) 몇명? 사원(대리, 사원) 몇명?
+-- 원래의 열 이름을 그대로 사용하여 그룹하였다.
 SELECT
 	CASE
 		WHEN jikwi IN ('부장', '과장') THEN '간부'
@@ -56,7 +57,6 @@ FROM tblInsa
 			WHEN jikwi IN ('부장', '과장') THEN '간부'
 			WHEN jikwi IN ('대리', '사원') THEN '사원'
 		END;
--- 원래의 열 이름을 그대로 사용하여 그룹하였다.
 
 
 -- 6. tblInsa. 기획부, 영업부, 총무부, 개발부의 각각 평균 급여?
@@ -71,28 +71,11 @@ FROM tblInsa
 -- 7. tblInsa. 남자 직원 가장 나이가 많은 사람이 몇년도 태생? 여자 직원 가장 나이가 어린 사람이 몇년도 태생?
 SELECT * FROM tblInsa;
 
-SELECT
-	name,
-	CASE 
-		WHEN SSN LIKE '%-1%' THEN '남자'
-        WHEN SSN LIKE '%-2%' THEN '여자'
-	END AS 성별,
-	ssn
-FROM tblInsa
-	ORDER BY CASE
-        WHEN SSN LIKE '%-1%' THEN 1
-        WHEN SSN LIKE '%-2%' THEN 2
-    END ASC;
-
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT 
+    max(CASE WHEN
+    		SSN LIKE '%-1%' THEN substr(ssn, 1, 2)
+    	END) AS 최대나이남자출생년도,
+    min(CASE WHEN SSN LIKE '%-2%' THEN substr(ssn, 1, 2)
+    	END) AS 최소나이여자출생년도
+			FROM tblInsa
+				WHERE SSN LIKE '%-1%' OR SSN LIKE '%-2%';
