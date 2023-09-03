@@ -18,7 +18,8 @@ FROM employees
 -- 2. 전체 이름(first_name + last_name)이 가장 긴 사람은 몇글자? 가장 짧은 사람은 몇글자? 평균 몇글자?
 --    > 컬럼 리스트 > 숫자 3개 컬럼
 SELECT
-	max(LENGTH(FIRST_NAME || LAST_NAME)),
+	max(LENGTH(FIRST_NAME
+|| LAST_NAME)),
 	min(LENGTH(FIRST_NAME || LAST_NAME)),
 	round(avg(LENGTH(FIRST_NAME || LAST_NAME)))
 FROM employees;

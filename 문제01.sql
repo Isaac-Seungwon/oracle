@@ -117,7 +117,6 @@ SELECT * FROM employees WHERE phone_number LIKE '515%';
 
 SELECT * FROM employees WHERE JOB_ID LIKE 'SA%';
 
-    
 
 --요구사항.020.employees
 --first_name에 'de'가 들어간 직원들 가져오시오.

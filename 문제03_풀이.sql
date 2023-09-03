@@ -33,7 +33,6 @@ select
     end)
 from tblInsa;
 
-
 select
     count(*) - 
     count(case
