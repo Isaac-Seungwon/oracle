@@ -126,7 +126,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.17987806" ratioLeft="177" ratioRight="807" relationship="2" relative="leftFolder"/>
+<info part="org.eclipse.ui.editorss" ratio="0.107338734" ratioLeft="411" ratioRight="3418" relationship="2" relative="leftFolder"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@13f3ba0" ratio="0.8485294" ratioLeft="2885" ratioRight="515" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.thumbnail" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="썸네일"/>

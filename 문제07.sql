@@ -86,11 +86,18 @@ FROM tblAddressBook
 -- tblAddressBook. 남자 평균 나이보다 나이가 많은 서울 태생 + 직업을 가지고 있는 사람들을 가져오시오.
 SELECT * FROM tblAddressBook;
 
-
+SELECT
+	*
+FROM tblAddressBook
+	WHERE
+	    address LIKE '%서울%'
+	    AND job IS NOT NULL
+	    AND age > (SELECT AVG(age) FROM tblAddressBook);
 
 
 -- tblAddressBook. 가장 나이가 많으면서 가장 몸무게가 많이 나가는 사람과 같은 직업을 가지는 사람들을 가져오시오.
 SELECT * FROM tblAddressBook;
+
 
 
 
