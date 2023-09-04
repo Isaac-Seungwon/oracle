@@ -45,10 +45,10 @@ SELECT * FROM tblMember;
 
 SELECT
 	DISTINCT m.name
-FROM tblVideo v
-	INNER JOIN tblMember m
-		ON v.qty = m.seq
-			INNER JOIN tblRent r
+FROM TBLMEMBER m
+	INNER JOIN tblRent r
+		ON r.MEMBER = m.seq
+			INNER JOIN TBLVIDEO v
 				ON r.video = v.seq
 					WHERE v.name = '털미네이터';
 			
@@ -64,11 +64,22 @@ SELECT
 FROM tblStaff s
 	INNER JOIN tblProject p
 		ON s.seq = p.staff_seq
-			WHERE s.address != '서울시';
+			WHERE s.address NOT IN ('서울시');
 	
+		
 -- tblCustomer, tblSales. 상품을 2개(단일상품) 이상 구매한 회원의 연락처, 이름, 구매상품명, 수량을 가져오시오.
 SELECT * FROM tblCustomer;
 SELECT * FROM tblSales;
+
+SELECT
+	c.tel AS 연락처,
+	c.name AS 이름,
+	s.item AS 구매상품명,
+	s.qty AS 수량
+FROM TBLCUSTOMER c
+	INNER JOIN TBLSALES s
+		ON c.seq = s.cseq
+			WHERE s.qty >= 2
 
 
 -- tblVideo, tblRent, tblGenre. 모든 비디오 제목, 보유수량, 대여가격을 가져오시오.
@@ -77,13 +88,26 @@ SELECT * FROM tblRent;
 SELECT * FROM tblGenre;
 
 SELECT
-	*
+	DISTINCT v.name AS 비디오제목,
+	v.qty AS 보유수량,
+	g.price AS 대여가격
 FROM tblVideo v
-	inner JOIN tblGenre g
+	INNER JOIN tblGenre g
 		ON v.genre = g.seq
-			LEFT outer JOIN tblRent r
-				ON v.seq = r.video;
-				
+			LEFT OUTER JOIN tblrent r
+				ON r.video = v.seq;
+
+SELECT
+	r.video,
+	count(r.video)
+FROM tblVideo v
+	INNER JOIN tblGenre g
+		ON v.genre = g.seq
+			LEFT OUTER JOIN tblrent r
+				ON r.video = v.seq
+					GROUP BY r.video;
+	
+			
 -- tblVideo, tblRent, tblMember, tblGenre. 2022년 2월에 대여된 구매내역을 가져오시오. 회원명, 비디오명, 언제, 대여가격
 SELECT * FROM tblVideo;
 SELECT * FROM tblRent;
@@ -162,3 +186,46 @@ SELECT * FROM tblMember;
     
     
 -- employees. 자신의 매니저보다 먼저 고용된 사원들의 first_name, last_name, 고용일을 가져오시오.
+
+
+
+
+-- rownum + group by
+
+
+-- 1. tblInsa. 남자 급여(기본급+수당)을 (내림차순)순위대로 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
+
+
+
+-- 2. tblInsa. 여자 급여(기본급+수당)을 (오름차순)순위대로 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
+
+
+-- 3. tblInsa. 여자 인원수가 (가장 많은 부서 및 인원수) 가져오시오.
+
+
+
+-- 4. tblInsa. 지역별 인원수 (내림차순)순위를 가져오시오.(city, 인원수)
+SELECT city, rownum FROM (SELECT city FROM tblInsa GROUP BY city ORDER BY count(city) DESC);
+
+
+-- 5. tblInsa. 부서별 인원수가 가장 많은 부서 및원수 출력.
+
+
+-- 6. tblInsa. 남자 급여(기본급+수당)을 (내림차순) 3~5등까지 가져오시오. (이름, 부서, 직위, 급여, 순위 출력)
+
+
+-- 7. tblInsa. 입사일이 빠른 순서로 5순위까지만 가져오시오.
+
+
+-- 8. tblhousekeeping. 지출 내역(가격 * 수량) 중 가장 많은 금액을 지출한 내역 3가지를 가져오시오.
+
+
+-- 9. tblinsa. 평균 급여 2위인 부서에 속한 직원들을 가져오시오.
+
+
+-- 10. tbltodo. 등록 후 가장 빠르게 완료한 할일을 순서대로 5개 가져오시오.
+
+
+-- 11. tblinsa. 남자 직원 중에서 급여를 3번째로 많이 받는 직원과 9번째로 많이 받는 직원의 급여 차액은 얼마인가?
+
+
