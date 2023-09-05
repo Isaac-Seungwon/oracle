@@ -1,5 +1,6 @@
 -- employees. 'Munich' 도시에 위치한 부서에 소속된 직원들 명단?
 select location_id from locations where city = 'Munich';
+
 select department_id from departments where location_id = 2700;
 select * from employees where department_id = 70;
 select * from employees 

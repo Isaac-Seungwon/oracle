@@ -1,0 +1,5 @@
+#Tue Sep 05 10:56:49 KST 2023
+PLUGINS_NOT_ACTIVATED_ON_STARTUP=
+eclipse.preferences.version=1
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands/>
+ENABLED_DECORATORS=org.eclipse.team.cvs.ui.decorator\:true,org.eclipse.ui.LinkedResourceDecorator\:true,org.eclipse.ui.ContentTypeDecorator\:true,

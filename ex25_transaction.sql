@@ -129,7 +129,7 @@ SAVEPOINT b;
 
 UPDATE tblTrans SET buseo = '개발부' WHERE name = '후후후';
 
-
+ROLLBACK TO a;
 
 SELECT * FROM tblTrans;
 

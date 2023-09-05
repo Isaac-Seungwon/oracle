@@ -251,7 +251,9 @@ SELECT * FROM tblCategoryMedium;
 SELECT * FROM tblCategorySmall;
 
 SELECT
-	*
+	b.name AS 상,
+	m.name AS 중,
+	s.name AS 하
 FROM tblCategoryBig b
 	INNER JOIN tblCategoryMedium m
 		ON b.seq = m.pseq
