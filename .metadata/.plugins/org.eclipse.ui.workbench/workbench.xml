@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="305" y="305">
+<window height="768" maximized="true" minimized="true" width="1024" x="305" y="305">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -29,6 +29,7 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
@@ -39,11 +40,14 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="study.exerd" partName="study.exerd" path="C:/Class/code/oracle/eXERD-Samples/study.exerd" title="study.exerd" tooltip="eXERD-Samples/study.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eXERD-Samples/study.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="test.exerd" partName="test.exerd" path="C:/Class/code/oracle/oracleTest/test.exerd" title="test.exerd" tooltip="oracleTest/test.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="test.exerd" partName="test.exerd" path="C:/Class/code/oracle/oracleTest/test.exerd" title="test.exerd" tooltip="oracleTest/test.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/oracleTest/test.exerd"/>
 </editor>
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="reverse.exerd" partName="reverse.exerd" path="C:/Class/code/oracle/oracleTest/reverse.exerd" title="reverse.exerd" tooltip="oracleTest/reverse.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/oracleTest/reverse.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="비디오.exerd" partName="비디오.exerd" path="C:/Class/code/oracle/eXERD-Samples/비디오.exerd" title="비디오.exerd" tooltip="eXERD-Samples/비디오.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eXERD-Samples/비디오.exerd"/>
 </editor>
 </editors>
 <views>
@@ -177,6 +181,10 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/study.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/oracleTest/test.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/oracleTest/reverse.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/untitled.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/oracleTest/reverse.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/비디오.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/oracleTest/비디오 temp.exerd"/>
 </editors>
 <item historyLabel="pos.exerd" index="0"/>
 <item historyLabel="study.exerd" index="1"/>
@@ -190,7 +198,20 @@
 <item historyLabel="study.exerd" index="1"/>
 <item historyLabel="test.exerd" index="2"/>
 <item historyLabel="reverse.exerd" index="3"/>
-<item active="true" historyLabel="test.exerd" index="2"/>
+<item historyLabel="test.exerd" index="2"/>
+<item historyLabel="untitled.exerd" index="4"/>
+<item historyLabel="reverse.exerd" index="5"/>
+<item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="reverse.exerd" index="5"/>
+<item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="비디오 temp.exerd" index="7"/>
+<item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="비디오 temp.exerd" index="7"/>
+<item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="비디오 temp.exerd" index="7"/>
+<item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="비디오 temp.exerd" index="7"/>
+<item active="true" historyLabel="비디오.exerd" index="6"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -208,6 +229,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="비디오 temp.exerd" tooltip="oracleTest/비디오 temp.exerd">
+<persistable path="/oracleTest/비디오 temp.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="untitled.exerd" tooltip="eXERD-Samples/untitled.exerd">
+<persistable path="/eXERD-Samples/untitled.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="reverse.exerd" tooltip="oracleTest/reverse.exerd">
 <persistable path="/oracleTest/reverse.exerd"/>
 </file>
