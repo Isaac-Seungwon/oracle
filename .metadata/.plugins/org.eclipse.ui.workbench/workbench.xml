@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" minimized="true" width="2399" x="1187" y="-36">
+<window height="768" maximized="true" width="2399" x="1544" y="101">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -162,6 +162,7 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/Movie.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/Movie.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/movieERD.drawio"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/pos.exerd"/>
 </editors>
 <item historyLabel="pos.exerd" index="0"/>
 <item historyLabel="study.exerd" index="1"/>
@@ -201,6 +202,8 @@
 <position/>
 </item>
 <item historyLabel="비디오.exerd" index="6"/>
+<item historyLabel="Movie.exerd" index="9"/>
+<item historyLabel="pos.exerd" index="11"/>
 <item active="true" historyLabel="Movie.exerd" index="9"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
