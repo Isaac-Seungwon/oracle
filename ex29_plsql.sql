@@ -778,35 +778,203 @@ BEGIN
 END;
 
 
+declare
+    
+    cursor vcursor
+        is select num, basicpay, jikwi from tblInsa;
+        
+    vnum tblInsa.num%type;
+    vbasicpay tblInsa.basicpay%type;
+    vjikwi tblInsa.jikwi%type;
+    vbonus number;
+    
+begin
+    
+    open vcursor;
+    loop
+        fetch vcursor into vnum, vbasicpay, vjikwi;
+        exit when vcursor%notfound;
+        
+        if vjikwi in ('과장', '부장') then
+            vbonus := vbasicpay * 1.5;
+        elsif vjikwi in ('사원', '대리') then
+            vbonus := vbasicpay * 2;
+        end if;
+        
+        insert into tblBonus (seq, num, bonus)
+            values ((select nvl(max(seq), 0) + 1 from tblBonus), vnum, vbonus);
+        
+    end loop;
+    close vcursor;
+
+end;
+
+
+-- 커서 탐색
+-- 1. 커서 + loop (정석)
+-- 2. 커서 + for loop (간결)
+
+-- 형식
+DECLARE
+	CURSOR 커서
+	IS SELECT * FROM 테이블;
+	vrow 테이블%rowtype;
+BEGIN
+	OPEN vcursor;
+	LOOP
+		FETCH INTO;
+		EXIT WHEN;
+	END LOOP;
+	CLOSE vcursor;	
+END;
+
+
+--커서 + loop (정석)
+DECLARE
+	CURSOR vcursor
+	IS SELECT * FROM tblInsa;
+	vrow tblInsa%rowtype;
+BEGIN
+	OPEN vcursor;
+	LOOP
+		FETCH vcursor INTO vrow;
+		EXIT WHEN vcursor%notfound;
+	
+		dbms_output.put_line(vrow.name);
+	END LOOP;
+	CLOSE vcursor;	
+END;
+
+-- 정석대로 코드를 탐색했을 때의 모습이다.
+
+
+--커서 + for loop (간결)
+DECLARE
+	CURSOR vcursor
+	IS SELECT * FROM tblInsa;
+	--vrow tblInsa%rowtype;
+BEGIN
+	--OPEN vcursor;
+	--LOOP
+	FOR vrow IN vcursor LOOP --LOOP + FETCH INTO + vrow + EXIT when
+		--FETCH vcursor INTO vrow;
+		--EXIT WHEN vcursor%notfound;
+	
+		dbms_output.put_line(vrow.name);
+	END LOOP
+	--CLOSE vcursor;	
+END;
+
+
+-- 간결하게 작성하면 위와 같은 구문들을 지울 수 있다.
+
+DECLARE
+	CURSOR vcursor
+	IS SELECT * FROM tblInsa;
+BEGIN
+	FOR vrow IN vcursor LOOP
+		dbms_output.put_line(vrow.name);
+	END LOOP
+END;
 
 
 
+-- 예외처리
+-- : 실행부에서(being~end) 발생하는 예외를 처리하는 블럭 (exception 블럭)
+
+--ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+DECLARE
+	vname varchar2(5);
+BEGIN
+	dbms_output.put_line('하나');
+	SELECT name INTO vname FROM tblInsa WHERE num = 1001;
+	dbms_output.put_line('둘');
+
+	dbms_output.put_line(vname);
+END;
+
+-- 데이터의 길이가 짧다는 오류가 발생하고 있다.
+-- 절차를 갖게 되었을 때의 에러 발생은 무조건 에러가 나는 게 아니다. 기능이 잘 될 때 까지는 업무가 진행이 된다.
+-- 이는 전형적인 흐름이 있는 프로그래밍 언어에서 볼 수 있는 특징이다.
+-- 이렇게 오류가 발생하면 올바른 종료가 이루어진 게 아니라 작업 도중에 올스톱 된 것이기 때문에 안정성에 문제가 있다.
+-- 에러는 늘 있을 수 있기 때문에 해결하는 대신에 예외처리 코드를 실행해서 에러에 대한 예측을 하고, 처리하기 위해 사용한다.
+
+DECLARE
+	vname varchar2(5);
+BEGIN
+	dbms_output.put_line('하나');
+	SELECT name INTO vname FROM tblInsa WHERE num = 1001;
+	dbms_output.put_line('둘');
+
+	dbms_output.put_line(vname);
+EXCEPTION
+	WHEN OTHERS THEN --모든 에러 처리
+	dbms_output.put_line('예외 처리');
+END;
+
+-- try-catch문으로 치면 begin부터 exception까지가 try절, exceoption부터 end까지가 catch절로 이해할 수 있다.
+
+EXCEPTION
+	WHEN OTHERS THEN
+	dbms_output.put_line('예외 처리');
+-- 이 부분이 하나의 catch절이다.
+
+
+-- run-time 에러는 내가 예측하지 못한 에러도 포함되어 있기 떄문에 모두 잡는 게 힘들다.
+-- 그래서 예외가 발생하면 나중에 볼 수 있게 DB에 저장을 한다.
+-- 예외가 발생하면 DB에 저장할 수 있게 log 테이블을 만들어 보도록 하자.
+
+CREATE TABLE tblLog (
+	seq NUMBER PRIMARY KEY,					--PK
+	code varchar2(7) NOT NULL CHECK (code IN ('A001', 'B001', 'B002', 'C001')), --에러 상태 코드
+	message varchar2(1000) NOT NULL,		--에러 메시지
+	regdate DATE DEFAULT sysdate NOT NULL	--에러 발생 시각
+)
+-- 발생할 수 있는 에러를 예측하여 만든 게 에러 상태 코드라고 한다.
+-- 실제로는 발생할 수 있는 에러 종류가 너무 많기 때문에 연습용으로 체크를 했지만, 실제로 작업할 때에는 이와 같이 사용하지 않도록 한다.
+-- 이렇게 테이블을 만들어두면 관리자가 모니터링을 하고 있지 않더라도 에러가 발생했다는 것을 알 수 있다.
+
+CREATE SEQUENCE seqLog;
 
 
 
+DECLARE
+	vcnt NUMBER;
+	vname tblInsa.name%TYPE;
+BEGIN
+	
+	--ORA-01476: divisor is equal to zero
+	SELECT count(*) INTO vcnt FROM tblCountry WHERE name = '태국';
+	dbms_output.put_line(100 / vcnt);
+	
+	--ORA-01403: no data found
+	SELECT name INTO vname FROM tblInsa WHERE num = '1000';
+	dbms_output.put_line(vname);3
 
+EXCEPTION
 
+	WHEN ZERO_DIVIDE THEN
+		dbms_output.put_line('0으로 나누기');
+		INSERT INTO tblLog
+			VALUES (seqLog.nextVal, 'B001', '가져온 레코드가 없습니다.', default);
+	
+	WHEN NO_DATA_FOUND THEN
+		dbms_output.put_line('데이터 없음');
+		INSERT INTO tblLog
+			VALUES (seqLog.nextVal, 'A001', '직원이 존재하지 않습니다.', default);
+	
+	WHEN OTHERS THEN --모든 에러 처리
+		dbms_output.put_line('나머지 예외');
+		INSERT INTO tblLog
+			VALUES (seqLog.nextVal, 'C001', '기타 예외가 발생했습니다.', default);
+END;
 
+-- divisor is equal to zero 에러와 no data found 에러가 발생하고 있다.
+-- 두 가지 에러 모두 없는 데이터를 찾으려고 할 때 발생한다.
+-- exception은 오류를 구분하여 출력하는 게 가능하다.
+-- ORA-01476, ORA-01403 오류에 번호가 적혀 있다. 이게 바로 Oracle Database error number 이다.
+-- 이를 공식 문서에서 찾아서 exception에 Exception name을 적어주면 된다.
+-- 전용 구문을 만들었기 때문에 두 가지 에러에 대한 대처가 가능하다.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT * FROM tblLog;
 
