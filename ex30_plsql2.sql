@@ -518,6 +518,7 @@ BEGIN
 	--4. 피드백 (성공)
 	presult := 1;
 EXCEPTION
+
 	--4. 피드백 (실패)
 	WHEN OTHERS THEN
 		presult := 0;
