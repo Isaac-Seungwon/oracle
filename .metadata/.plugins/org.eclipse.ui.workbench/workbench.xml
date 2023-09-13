@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" minimized="true" width="2399" x="1544" y="101">
+<window height="768" maximized="true" width="2399" x="1086" y="236">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -32,6 +32,7 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -51,8 +52,11 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="비디오.exerd" partName="비디오.exerd" path="C:/Class/code/oracle/eXERD-Samples/비디오.exerd" title="비디오.exerd" tooltip="eXERD-Samples/비디오.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eXERD-Samples/비디오.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="Movie.exerd" partName="Movie.exerd" title="Movie.exerd" tooltip="C:\이승원\Isaac portfolio\9 Oracle\2조\Movie.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="Movie.exerd" partName="Movie.exerd" title="Movie.exerd" tooltip="C:\이승원\Isaac portfolio\9 Oracle\2조\Movie.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/Movie.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="교육센터.exerd" partName="교육센터.exerd" title="교육센터.exerd" tooltip="C:\Users\zhzkd\Downloads\교육센터.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/zhzkd/Downloads/교육센터.exerd"/>
 </editor>
 </editors>
 <views>
@@ -163,6 +167,7 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/Movie.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/movieERD.drawio"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/pos.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/zhzkd/Downloads/교육센터.exerd"/>
 </editors>
 <item historyLabel="pos.exerd" index="0"/>
 <item historyLabel="study.exerd" index="1"/>
@@ -204,7 +209,8 @@
 <item historyLabel="비디오.exerd" index="6"/>
 <item historyLabel="Movie.exerd" index="9"/>
 <item historyLabel="pos.exerd" index="11"/>
-<item active="true" historyLabel="Movie.exerd" index="9"/>
+<item historyLabel="Movie.exerd" index="9"/>
+<item active="true" historyLabel="교육센터.exerd" index="12"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -222,6 +228,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="교육센터.exerd" tooltip="C:\Users\zhzkd\Downloads\교육센터.exerd">
+<persistable uri="file:/C:/Users/zhzkd/Downloads/교육센터.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="Movie.exerd" tooltip="C:\이승원\Isaac portfolio\9 Oracle\2조\Movie.exerd">
 <persistable uri="file:/C:/이승원/Isaac%20portfolio/9%20Oracle/2조/Movie.exerd"/>
 </file>
