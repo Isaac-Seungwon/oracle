@@ -1,0 +1,11 @@
+
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+Export done in KO16MSWIN949 character set and AL16UTF16 NCHAR character set
+server uses AL32UTF8 character set (possible charset conversion)
+
+About to export specified tables via Conventional Path ...
+EXP-00011: USER_LSW.MEMBER does not exist
+EXP-00011: USER_LSW.SCHEDULE_MOVIE does not exist
+EXP-00011: USER_LSW.RESERVATION does not exist
+EXP-00011: USER_LSW.DIRECTOR does not exist
+Export terminated successfully with warnings.
